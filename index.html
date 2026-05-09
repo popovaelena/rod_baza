@@ -3,201 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Елена Попова | Сила твоего Рода</title>
+    <title>Курс: Сила твоего Рода | Елена Попова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --emerald: #043927; /* Глубокий изумруд */
             --gold: #d4af37;    /* Золото */
-            --light-gold: #fcf4dd;
-            --text-dark: #1a1a1a;
+            --light-bg: #f4f7f6;
             --white: #ffffff;
         }
 
         body {
-            font-family: 'Playfair Display', serif; /* Или Georgia */
-            margin: 0;
-            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0; padding: 0;
             background-color: var(--white);
-            color: var(--text-dark);
+            color: #333;
             line-height: 1.6;
         }
 
-        /* Шапка */
-        .header {
-            background: var(--emerald);
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Шапка курса */
+        .hero {
+            background: linear-gradient(rgba(4, 57, 39, 0.9), rgba(4, 57, 39, 0.9)), url('bg.jpg');
+            background-size: cover;
             color: var(--gold);
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
-            border-bottom: 4px solid var(--gold);
+            border-bottom: 5px solid var(--gold);
         }
 
-        .header img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
+        .hero h1 { font-size: 3em; margin: 0; text-transform: uppercase; letter-spacing: 3px; }
+        .hero p { color: #fff; font-size: 1.2em; margin-top: 10px; }
 
-        .header h1 { margin: 10px 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* Таймер */
-        .timer-box {
-            background: var(--light-gold);
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--emerald);
-            border: 1px solid var(--gold);
-            margin: 20px 0;
-        }
-
-        /* Секции */
-        .section { padding: 50px 20px; max-width: 900px; margin: 0 auto; }
-        .section-title { 
-            color: var(--emerald); 
-            text-align: center; 
-            font-size: 2em; 
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--gold);
-            display: inline-block;
-            width: 100%;
-            padding-bottom: 10px;
-        }
-
-        /* Преимущества */
-        .grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
-        .card { 
-            flex: 1 1 200px; 
-            padding: 20px; 
-            background: #f9f9f9; 
-            border-top: 3px solid var(--gold); 
-            text-align: center;
-        }
-
-        /* Обо мне */
-        .about-box { background: var(--emerald); color: white; border-radius: 20px; padding: 30px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .about-text { flex: 2; }
-        .about-text h2 { color: var(--gold); }
-
-        /* Практики */
-        .practice-item {
-            border-left: 4px solid var(--emerald);
-            padding-left: 20px;
-            margin-bottom: 30px;
-        }
-        .practice-item h3 { color: var(--emerald); margin-bottom: 5px; }
-
-        /* Отзывы */
-        .reviews-scroll { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; }
-        .review-img { width: 250px; border: 1px solid #ddd; border-radius: 10px; }
-
-        /* Цена и Кнопка */
-        .cta-block { text-align: center; background: var(--light-gold); padding: 40px; border-radius: 20px; margin: 40px 0; }
-        .price { font-size: 3em; color: var(--emerald); font-weight: bold; }
-        .old-price { text-decoration: line-through; color: #888; font-size: 1.2em; }
         .btn {
             background: var(--gold);
             color: var(--emerald);
-            padding: 20px 40px;
+            padding: 18px 35px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.5em;
             border-radius: 50px;
             display: inline-block;
+            margin-top: 25px;
             transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .btn:hover { transform: scale(1.05); background: var(--emerald); color: var(--gold); }
+        .btn:hover { transform: scale(1.05); background: #fff; }
+
+        /* Таймер */
+        .timer-strip { background: #fcf4dd; padding: 15px; text-align: center; font-weight: 600; border-bottom: 1px solid var(--gold); }
+
+        /* Секции */
+        .section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+        .title { text-align: center; color: var(--emerald); margin-bottom: 40px; font-size: 2.2em; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { padding: 25px; background: var(--light-bg); border-radius: 15px; border-top: 4px solid var(--gold); }
+
+        /* Обо мне */
+        .author-box { background: var(--emerald); color: #fff; padding: 40px; border-radius: 30px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .author-img { width: 220px; height: 220px; border-radius: 50%; border: 4px solid var(--gold); object-fit: cover; }
+        .author-info { flex: 1; }
+        .author-info h2 { color: var(--gold); margin-top: 0; }
+
+        /* Программа */
+        .prog-item { margin-bottom: 25px; padding-left: 20px; border-left: 3px solid var(--gold); }
+        .prog-item h3 { color: var(--emerald); margin: 0 0 5px 0; }
+
+        /* Отзывы */
+        .reviews-container { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 20px; }
+        .reviews-container img { height: 350px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* Футер */
+        .footer { background: #1a1a1a; color: #ccc; padding: 40px 20px; text-align: center; }
+        .footer a { color: var(--gold); text-decoration: none; margin: 0 10px; }
+        .reквизиты { font-size: 0.8em; margin-top: 20px; color: #666; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="me.jpg" alt="Елена Попова">
-        <h1>Елена Попова</h1>
-        <p>Психолог | Системный расстановщик | Целитель Рейки</p>
+    <section class="hero">
+        <h1>СИЛА ТВОЕГО РОДА</h1>
+        <p>Глубинная программа трансформации системных сценариев</p>
+        <a href="https://secure.wayforpay.com/button/bdb4d31a94e14" class="btn">Записаться на курс</a>
+    </section>
+
+    <div class="timer-strip">
+        🔥 БОНУС: Купите сегодня и получите пакет "78 практик" в подарок! 
+        Осталось: <span id="timer">59:59</span>
     </div>
 
-    <div class="timer-box">
-        🎁 АКЦИЯ: Купите сегодня и получите Бонус "78 практик" БЕСПЛАТНО! <br>
-        До конца предложения: <span id="timer">00:59:59</span>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Для кого этот курс?</h2>
+    <section class="section">
+        <h2 class="title">Для кого этот курс?</h2>
         <div class="grid">
-            <div class="card">Чувствуете "стеклянный потолок" в деньгах</div>
-            <div class="card">Проживаете не свою судьбу или сценарии родителей</div>
-            <div class="card">Потеряли опору и внутреннюю энергию</div>
-            <div class="card">Сложные отношения с родом или партнером</div>
+            <div class="card">Проживаете не свою судьбу или повторяете сценарии родителей</div>
+            <div class="card">Потеряли внутреннюю опору и жизненную энергию</div>
+            <div class="card">Часто болеете и чувствуете упадок сил</div>
+            <div class="card">Сложные отношения в семье или с партнером</div>
+            <div class="card">Постоянно попадаете в одни и те же ситуации</div>
         </div>
-    </div>
+    </section>
 
-    <div class="section" style="background: #f4f4f4;">
-        <h2 class="section-title">Преимущества формата</h2>
+    <section class="section" style="background: var(--light-bg); border-radius: 50px;">
+        <h2 class="title">Преимущества формата</h2>
         <div class="grid">
-            <div class="card"><b>Аудио-формат</b><br>Слушайте в любое время, в наушниках, погружаясь в Поле.</div>
-            <div class="card"><b>Доступ навсегда</b><br>Сразу после оплаты вы получаете все материалы.</div>
-            <div class="card"><b>Глубина</b><br>Методы директивной трансформации и яснознания.</div>
+            <div class="card"><b>Удобное аудио</b><br>Практики всегда с собой. Слушайте и трансформируйтесь в любое время.</div>
+            <div class="card"><b>Доступ навсегда</b><br>Материалы остаются у вас без ограничений по времени.</div>
+            <div class="card"><b>Мгновенный результат</b><br>Практики, которые меняют ваше состояние в моменте.</div>
+            <div class="card"><b>Глубина и скорость</b><br>расстановочный подход позволяет убрать блоки, которые строились годами.</div>
         </div>
-    </div>
+    </section>
 
-    <div class="section">
-        <div class="about-box">
-            <div class="about-text">
+    <section class="section">
+        <div class="author-box">
+            <img src="me.jpg.PNG" alt="Елена Попова" class="author-img">
+            <div class="author-info">
                 <h2>Ваш проводник — Елена Попова</h2>
-                <p>Психолог, коуч, мастер директивных трансформаций и Ясно знающая. Спикер крупнейших фестивалей по развитию личности. Моя миссия — проявить скрытые динамики вашей системы и вернуть вам вашу истинную силу.</p>
+                <p>Психолог, системный расстановщик, коуч в методе реактивной трансформации. Целитель Рейки, Яснознающая.</p>
+                <p>Автор онлайн-курсов, спикер крупнейших фестивалей по развитию личности.</p>
+                <p><i>"Моя миссия — проявить скрытые динамики вашей системы и вернуть вам вашу истинную силу".</i></p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section">
-        <h2 class="section-title">Программа курса</h2>
-        <div class="practice-item">
-            <h3>Практика «ОЗЕРО»</h3>
-            <p>Ваш ежедневный ритуал честности. Остановка, чтобы увидеть свои истинные чувства и мысли, отделяя их от навязанных системой.</p>
+    <section class="section">
+        <h2 class="title">Программа курса</h2>
+        <div class="prog-item">
+            <h3>Практика «ОЗЭРО»</h3>
+            <p>Ваш ежедневный инструмент осознанности. Остановка, чтобы увидеть истинные чувства и мысли, отделяя свои реакции от системных.</p>
         </div>
-        <div class="practice-item">
-            <h3>Внутриутробный период</h3>
-            <p>Исцеление самого первого фундамента вашей жизни. Возвращение права на жизнь и базового доверия к миру.</p>
+        <div class="prog-item">
+            <h3>В животе у мамы</h3>
+            <p>Исцеление самого первого фундамента. Возвращение базового доверия и вашего права на жизнь.</p>
         </div>
-        <div class="practice-item">
+        <div class="prog-item">
+            <h3>Практика прощения</h3>
+            <p>Глубокое освобождение от узлов обид к родителям и бывшим партнерам. Возврат энергии, заблокированной в прошлом.</p>
+        </div>
+        <div class="prog-item">
             <h3>Выстраивание веток Рода</h3>
-            <p>Займите свое законное место в иерархии. Получите ресурс от миллионов предков за вашей спиной.</p>
+            <p>Восстановление иерархии. Вы найдете свое место, где вы защищены и напитаны силой миллионов предков.</p>
         </div>
+        <div class="prog-item">
+            <h3>Братья и Сестры</h3>
+            <p>Гармонизация отношений среди равных. Завершение конкуренции и принятие всех исключенных из системы.</p>
         </div>
+        <div class="prog-item">
+            <h3>Соединение с Внутренним ребенком</h3>
+            <p>Встреча с той частью тебя, которая жаждет безопасности. Инициация во взрослую, любящую и мощную позицию.</p>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2 class="section-title">Отзывы</h2>
-        <div class="reviews-scroll">
-            <img src="review1.jpg" class="review-img" alt="Отзыв">
-            <img src="review2.jpg" class="review-img" alt="Отзыв">
-            <img src="review3.jpg" class="review-img" alt="Отзыв">
+    <section class="section">
+        <h2 class="title">Результаты прохождения</h2>
+        <div class="grid">
+            <div class="card">Освободитесь от груза прошлого и чужих ожиданий</div>
+            <div class="card">Почувствуете мощную опору за спиной и прилив сил</div>
+            <div class="card">Наладите отношения с близкими без манипуляций</div>
+            <div class="card">Начнете делать выборы из состояния "Хочу", а не "Должна"</div>
         </div>
-    </div>
+    </section>
 
-    <div class="section">
-        <div class="cta-block">
-            <div class="old-price">65 EUR</div>
-            <div class="price">19 EUR</div>
-            <p>Курс "Сила Рода" + БОНУС "78 практик на каждый день"</p>
-            <a href="https://secure.wayforpay.com/button/bdb4d31a94e14" class="btn">ХОЧУ НА КУРС</a>
+    <section class="section">
+        <h2 class="title">Отзывы участников</h2>
+        <div class="reviews-container">
+            <img src="review1.jpg.jpg" alt="Отзыв">
+            <img src="review2.jpg.jpg" alt="Отзыв">
+            <img src="review3.jpg.jpg" alt="Отзыв">
+            <img src="review4.jpg.jpg" alt="Отзыв">
+            <img src="review5.jpg.jpg" alt="Отзыв">
         </div>
-    </div>
+    </section>
+
+    <section class="section" style="text-align: center;">
+        <div style="background: var(--light-bg); padding: 50px; border-radius: 30px; border: 2px solid var(--gold);">
+            <div style="font-size: 1.2em; text-decoration: line-through; color: #999;">65 EUR</div>
+            <div style="font-size: 3.5em; color: var(--emerald); font-weight: bold;">19 EUR</div>
+            <p>Курс "Сила Рода" + Бонус "78 практик" (при покупке сегодня)</p>
+            <a href="https://secure.wayforpay.com/button/bdb4d31a94e14" class="btn">Хочу на курс</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div style="margin-bottom: 20px;">
+            <a href="https://instagram.com/popovaelena.liubomira">Instagram</a> | 
+            <a href="https://t.me/elena_popova_coach">Telegram</a> | 
+            <a href="mailto:elenasokhareva.coach@gmail.com">Email</a>
+        </div>
+        <div class=" ЕГРПОУ 3310803284">
+            ФЛП Попова Елена Валерьевна <br>
+            г. Житомир, Украина
+        </div>
+    </footer>
 
     <script>
-        // Простой скрипт таймера
-        let time = 3599;
-        const timerEl = document.getElementById('timer');
+        let countdown = 3599;
+        const display = document.querySelector('#timer');
         setInterval(() => {
-            let m = Math.floor(time / 60);
-            let s = time % 60;
-            timerEl.innerHTML = `${m}:${s < 10 ? '0' : ''}${s}`;
-            time--;
+            let minutes = parseInt(countdown / 60, 10);
+            let seconds = parseInt(countdown % 60, 10);
+            display.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+            if (--countdown < 0) countdown = 3599;
         }, 1000);
     </script>
-
 </body>
 </html>
