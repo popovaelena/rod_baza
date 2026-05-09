@@ -3,209 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Курс: Сила твоего Рода | Елена Попова</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Сила твоего Рода | Елена Попова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --emerald: #043927; /* Глубокий изумруд */
-            --gold: #d4af37;    /* Золото */
-            --light-bg: #f4f7f6;
+            --emerald: #023020;
+            --gold: #d4af37;
             --white: #ffffff;
+            --light-bg: #f4f7f6;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0; padding: 0;
-            background-color: var(--white);
-            color: #333;
-            line-height: 1.6;
-        }
-
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--white); color: #1a1a1a; line-height: 1.7; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* Шапка курса */
+        /* Hero Section с деревом */
         .hero {
-            background: linear-gradient(rgba(4, 57, 39, 0.9), rgba(4, 57, 39, 0.9)), url('bg.jpg');
-            background-size: cover;
+            background: var(--emerald);
             color: var(--gold);
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
-            border-bottom: 5px solid var(--gold);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h1 { font-size: 3em; margin: 0; text-transform: uppercase; letter-spacing: 3px; }
-        .hero p { color: #fff; font-size: 1.2em; margin-top: 10px; }
+        .tree-container { margin-bottom: 20px; opacity: 0.9; }
+        .hero h1 { font-size: 3.5em; margin: 10px 0; letter-spacing: 3px; text-transform: uppercase; }
+        .hero p { color: #fff; font-size: 1.2em; max-width: 700px; margin: 20px auto; }
 
+        /* Кнопка */
         .btn {
             background: var(--gold);
             color: var(--emerald);
-            padding: 18px 35px;
+            padding: 20px 45px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             display: inline-block;
-            margin-top: 25px;
             transition: 0.3s;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border: none;
         }
         .btn:hover { transform: scale(1.05); background: #fff; }
 
-        /* Таймер */
-        .timer-strip { background: #fcf4dd; padding: 15px; text-align: center; font-weight: 600; border-bottom: 1px solid var(--gold); }
+        /* Отзывы текстом (цитаты) */
+        .quotes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 0; }
+        .quote-card { background: #fff; padding: 30px; border-radius: 20px; border-left: 5px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .quote-text { font-style: italic; margin-bottom: 15px; }
+        .quote-author { font-weight: 600; color: var(--emerald); font-size: 0.9em; }
 
         /* Секции */
-        .section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
-        .title { text-align: center; color: var(--emerald); margin-bottom: 40px; font-size: 2.2em; }
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .title { text-align: center; color: var(--emerald); margin-bottom: 50px; font-size: 2.5em; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { padding: 25px; background: var(--light-bg); border-radius: 15px; border-top: 4px solid var(--gold); }
+        /* Галерея отзывов */
+        .review-scroll { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scrollbar-width: thin; }
+        .review-scroll img { height: 400px; border-radius: 10px; border: 1px solid #ddd; }
 
-        /* Обо мне */
-        .author-box { background: var(--emerald); color: #fff; padding: 40px; border-radius: 30px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .author-img { width: 220px; height: 220px; border-radius: 50%; border: 4px solid var(--gold); object-fit: cover; }
-        .author-info { flex: 1; }
-        .author-info h2 { color: var(--gold); margin-top: 0; }
+        /* Автор */
+        .author-box { background: var(--light-bg); padding: 50px; border-radius: 40px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .author-img { width: 250px; height: 250px; border-radius: 50%; border: 4px solid var(--gold); object-fit: cover; }
 
-        /* Программа */
-        .prog-item { margin-bottom: 25px; padding-left: 20px; border-left: 3px solid var(--gold); }
-        .prog-item h3 { color: var(--emerald); margin: 0 0 5px 0; }
-
-        /* Отзывы */
-        .reviews-container { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 20px; }
-        .reviews-container img { height: 350px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-
-        /* Футер */
-        .footer { background: #1a1a1a; color: #ccc; padding: 40px 20px; text-align: center; }
-        .footer a { color: var(--gold); text-decoration: none; margin: 0 10px; }
-        .reквизиты { font-size: 0.8em; margin-top: 20px; color: #666; }
+        .footer { background: #0b1a14; color: #fff; padding: 40px 20px; text-align: center; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <h1>СИЛА ТВОЕГО РОДА</h1>
-        <p>Глубинная программа трансформации системных сценариев</p>
-        <a href="https://secure.wayforpay.com/button/bdb4d31a94e14" class="btn">Записаться на курс</a>
+        <div class="tree-container">
+            <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 85V60M50 60C55 50 70 45 80 35M50 60C45 50 30 45 20 35M50 45C50 30 65 20 75 15M50 45C50 30 35 20 25 15M50 60C50 40 50 20 50 10" stroke="#d4af37" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="20" cy="35" r="3" fill="#d4af37"/><circle cx="80" cy="35" r="3" fill="#d4af37"/>
+                <circle cx="25" cy="15" r="3" fill="#d4af37"/><circle cx="75" cy="15" r="3" fill="#d4af37"/>
+                <circle cx="50" cy="10" r="3" fill="#d4af37"/>
+            </svg>
+        </div>
+        <h1>Сила твоего Рода</h1>
+        <p>Глубинная программа трансформации системных сценариев и возвращения личной энергии</p>
+        <a href="https://secure.wayforpay.com/button/bdb4d31a94e14" class="btn">Получить доступ за 19 EUR</a>
     </section>
-
-    <div class="timer-strip">
-        🔥 БОНУС: Купите сегодня и получите пакет "78 практик" в подарок! 
-        Осталось: <span id="timer">59:59</span>
-    </div>
 
     <section class="section">
-        <h2 class="title">Для кого этот курс?</h2>
-        <div class="grid">
-            <div class="card">Проживаете не свою судьбу или повторяете сценарии родителей</div>
-            <div class="card">Потеряли внутреннюю опору и жизненную энергию</div>
-            <div class="card">Часто болеете и чувствуете упадок сил</div>
-            <div class="card">Сложные отношения в семье или с партнером</div>
-            <div class="card">Постоянно попадаете в одни и те же ситуации</div>
+        <h2 class="title">Что говорят люди?</h2>
+        <div class="quotes-grid">
+            <div class="quote-card">
+                <p class="quote-text">«После практики прощения я впервые за 30 лет почувствовала, что мои плечи расслабились. Словно тяжелый рюкзак, который я несла за маму, наконец-то упал. Появились силы просто жить свою жизнь».</p>
+                <div class="quote-author">— Наталья, участница курса</div>
+            </div>
+            <div class="quote-card">
+                <p class="quote-text">«Это невероятно! Сделала практику на ветки Рода, и через два дня мне позвонил отец, с которым мы не общались 5 лет. В системе всё начало вставать на свои места, и деньги стали приходить легче».</p>
+                <div class="quote-author">— Ирина, предприниматель</div>
+            </div>
+            <div class="quote-card">
+                <p class="quote-text">«Расстановки — это какая-то магия. Никакой воды, всё четко. Чувствую такую мощь за спиной, будто там стоит целая армия, которая меня поддерживает. Страх будущего просто исчез».</p>
+                <div class="quote-author">— Елена, практикующий психолог</div>
+            </div>
         </div>
-    </section>
-
-    <section class="section" style="background: var(--light-bg); border-radius: 50px;">
-        <h2 class="title">Преимущества формата</h2>
-        <div class="grid">
-            <div class="card"><b>Удобное аудио</b><br>Практики всегда с собой. Слушайте и трансформируйтесь в любое время.</div>
-            <div class="card"><b>Доступ навсегда</b><br>Материалы остаются у вас без ограничений по времени.</div>
-            <div class="card"><b>Мгновенный результат</b><br>Практики, которые меняют ваше состояние в моменте.</div>
-            <div class="card"><b>Глубина и скорость</b><br>расстановочный подход позволяет убрать блоки, которые строились годами.</div>
+        
+        <div class="review-scroll">
+            <script>
+                // Авто-генерация картинок отзывов от 1 до 48
+                for(let i=1; i<=48; i++) {
+                    document.write(`<img src="review${i}.jpq.jpg" alt="Отзыв ${i}">`);
+                }
+            </script>
         </div>
     </section>
 
     <section class="section">
         <div class="author-box">
-            <img src="me.jpg" alt="Елена Попова" class="author-img">
+            <img src="me.jpq.jpg" alt="Елена Попова" class="author-img">
             <div class="author-info">
                 <h2>Ваш проводник — Елена Попова</h2>
-                <p>Психолог, системный расстановщик, коуч в методе реактивной трансформации. Целитель Рейки, Яснознающая.</p>
-                <p>Автор онлайн-курсов, спикер крупнейших фестивалей по развитию личности.</p>
-                <p><i>"Моя миссия — проявить скрытые динамики вашей системы и вернуть вам вашу истинную силу".</i></p>
+                <p>Психолог, системный расстановщик, коуч в методе реактивной трансформации. Помогаю людям выйти из замкнутых родовых кругов и обрести свободу проявляться.</p>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="title">Программа курса</h2>
-        <div class="prog-item">
-            <h3>Практика «ОЗЭРО»</h3>
-            <p>Ваш ежедневный инструмент осознанности. Остановка, чтобы увидеть истинные чувства и мысли, отделяя свои реакции от системных.</p>
-        </div>
-        <div class="prog-item">
-            <h3>В животе у мамы</h3>
-            <p>Исцеление самого первого фундамента. Возвращение базового доверия и вашего права на жизнь.</p>
-        </div>
-        <div class="prog-item">
-            <h3>Практика прощения</h3>
-            <p>Глубокое освобождение от узлов обид к родителям и бывшим партнерам. Возврат энергии, заблокированной в прошлом.</p>
-        </div>
-        <div class="prog-item">
-            <h3>Выстраивание веток Рода</h3>
-            <p>Восстановление иерархии. Вы найдете свое место, где вы защищены и напитаны силой миллионов предков.</p>
-        </div>
-        <div class="prog-item">
-            <h3>Братья и Сестры</h3>
-            <p>Гармонизация отношений среди равных. Завершение конкуренции и принятие всех исключенных из системы.</p>
-        </div>
-        <div class="prog-item">
-            <h3>Соединение с Внутренним ребенком</h3>
-            <p>Встреча с той частью тебя, которая жаждет безопасности. Инициация во взрослую, любящую и мощную позицию.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="title">Результаты прохождения</h2>
-        <div class="grid">
-            <div class="card">Освободитесь от груза прошлого и чужих ожиданий</div>
-            <div class="card">Почувствуете мощную опору за спиной и прилив сил</div>
-            <div class="card">Наладите отношения с близкими без манипуляций</div>
-            <div class="card">Начнете делать выборы из состояния "Хочу", а не "Должна"</div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="title">Отзывы участников</h2>
-        <div class="reviews-container">
-            <img src="review1.jpg" alt="Отзыв">
-            <img src="review2.jpg" alt="Отзыв">
-            <img src="review3.jpg" alt="Отзыв">
-            <img src="review4.jpg" alt="Отзыв">
-            <img src="review5.jpg" alt="Отзыв">
-        </div>
-    </section>
-
-    <section class="section" style="text-align: center;">
-        <div style="background: var(--light-bg); padding: 50px; border-radius: 30px; border: 2px solid var(--gold);">
-            <div style="font-size: 1.2em; text-decoration: line-through; color: #999;">65 EUR</div>
-            <div style="font-size: 3.5em; color: var(--emerald); font-weight: bold;">19 EUR</div>
-            <p>Курс "Сила Рода" + Бонус "78 практик" (при покупке сегодня)</p>
-            <a href="https://secure.wayforpay.com/button/bdb4d31a94e14" class="btn">Хочу на курс</a>
-        </div>
-    </section>
-
     <footer class="footer">
-        <div style="margin-bottom: 20px;">
-            <a href="https://instagram.com/popovaelena.liubomira">Instagram</a> | 
-            <a href="https://t.me/elena_popova_coach">Telegram</a> | 
-            <a href="mailto:elenasokhareva.coach@gmail.com">Email</a>
-        </div>
-        <div class=" ЕГРПОУ 3310803284">
-            ФЛП Попова Елена Валерьевна <br>
-            г. Житомир, Украина
-        </div>
+        <p>ФЛП Попова Елена Валерьевна  ЕГРПОУ 3310803284 | г. Житомир, Украина</p>
+        <p>© 2026 Все права защищены. По всем вопросам: [elenasokhareva.coach@gmail.com]</p>
     </footer>
 
-    <script>
-        let countdown = 3599;
-        const display = document.querySelector('#timer');
-        setInterval(() => {
-            let minutes = parseInt(countdown / 60, 10);
-            let seconds = parseInt(countdown % 60, 10);
-            display.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-            if (--countdown < 0) countdown = 3599;
-        }, 1000);
-    </script>
 </body>
 </html>
